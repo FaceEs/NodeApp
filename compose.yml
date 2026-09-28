@@ -1,0 +1,59 @@
+services:
+  api:
+    image: mcr.microsoft.com/dotnet/sdk:10.0
+    working_dir: /app
+    command: sh -c "dotnet restore NodeWorker.csproj && dotnet run --no-restore --project NodeWorker.csproj --urls http://0.0.0.0:8090"
+    restart: on-failure
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__Database: Host=db;Port=5432;Database=nodeworker;Username=nodeworker;Password=nodeworker_dev_password
+    volumes:
+      - ./:/app
+    ports:
+      - "8090:8090"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:18
+    environment:
+      POSTGRES_DB: nodeworker
+      POSTGRES_USER: nodeworker
+      POSTGRES_PASSWORD: nodeworker_dev_password
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U nodeworker -d nodeworker"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+      PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: "False"
+    configs:
+      - source: pgadmin-pgpass
+        target: /config/pgpass
+        uid: "5050"
+        gid: "5050"
+        mode: 0400
+    volumes:
+      - ./servers.json:/pgadmin4/servers.json:ro
+    ports:
+      - "8080:80"
+    depends_on:
+      db:
+        condition: service_healthy
+
+configs:
+  pgadmin-pgpass:
+    content: |
+      db:5432:*:nodeworker:nodeworker_dev_password
+
+volumes:
+  postgres_data:

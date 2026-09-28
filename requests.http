@@ -1,0 +1,13 @@
+@baseUrl = http://localhost:8090
+
+### Extract anchor href values
+POST {{baseUrl}}/api/process
+Content-Type: application/json
+
+< ./json_payload_1.txt
+
+### Extract script src values
+POST {{baseUrl}}/api/process
+Content-Type: application/json
+
+< ./json_payload_2.txt

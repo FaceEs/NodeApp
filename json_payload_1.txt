@@ -1,0 +1,8 @@
+{
+  "selector": "a[href]",
+  "attribute": "href",
+  "url_b64": "aHR0cHM6Ly90ZXN0LmNvbS9wYWdlMQ==",
+  "encrypted_text_bytes_b64": "hXeVCcIEyC/5ovf4eyJCozhRbTUV5jjBzOUPBM6dgZnoGyY8CNFBYxffu9fHJp5bSPKzdsFbMZ9gNZfhCG17Sg==",
+  "key_bytes_b64": "SGVsbG8gVGVzdEpvYiAyNTYgYml0IHNlY3JldCBrZXk=",
+  "page_b64": "PCFkb2N0eXBlIGh0bWw+PGh0bWw+PGJvZHk+PGEgaHJlZj0iaHR0cHM6Ly9leGFtcGxlLmNvbS9vbmUiPm9uZTwvYT48YSBocmVmPSJodHRwczovL2V4YW1wbGUuY29tL3R3byI+dHdvPC9hPjxzY3JpcHQgc3JjPSJodHRwczovL2Nkbi5leGFtcGxlLmNvbS9hcHAuanMiPjwvc2NyaXB0PjxzY3JpcHQgc3JjPSIvbG9jYWwuanMiPjwvc2NyaXB0PjxwPmhlbHBAZXhhbXBsZS5jb208L3A+PHA+YWRtaW5AZXhhbXBsZS5vcmc8L3A+PC9ib2R5PjwvaHRtbD4="
+}

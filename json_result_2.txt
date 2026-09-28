@@ -1,0 +1,17 @@
+{
+  "is_error": 0,
+  "error_code": "",
+  "error_message": "",
+  "elements_count": 2,
+  "emails_count": 2,
+  "url": "https://test.com/page123",
+  "decrypted_plain_text": "AES Error: Object reference not set to an instance of an object.",
+  "elements_attr_list": [
+    "https://cdn.example.com/app.js",
+    "/local.js"
+  ],
+  "emails_list": [
+    "help@example.com",
+    "admin@example.org"
+  ]
+}
